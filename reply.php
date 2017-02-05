@@ -12,8 +12,10 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 
-			$text = "Hi, Songpon How are you?";
-			$To = "U50db648d0798f19ff5708e8a4e992b08";
+			$text = "User ID is : ".$event['source']['userId'];
+			//$text = $event['message']['text'];
+			// Get replyToken
+			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
 			$messages = [
@@ -22,9 +24,9 @@ if (!is_null($events['events'])) {
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
-			$url = 'https://api.line.me/v2/bot/message/push';
+			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
-				'to' => $To,
+				'replyToken' => $replyToken,
 				'messages' => [$messages],
 			];
 			$post = json_encode($data);
@@ -43,5 +45,5 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
-echo "OK_push";
+echo "OK";
 ?>
