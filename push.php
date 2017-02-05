@@ -11,9 +11,10 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
-			$text = $event['message']['text'];
+			$text = "HI";
 			// Get replyToken
 			$replyToken = $event['replyToken'];
+			$to = "kornsub.s";
 
 			// Build message to reply back
 			$messages = [
@@ -22,9 +23,9 @@ if (!is_null($events['events'])) {
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
-			$url = 'https://api.line.me/v2/bot/message/reply';
+			$url = 'https://api.line.me/v2/bot/message/push';
 			$data = [
-				'replyToken' => $replyToken,
+				'to' => $to,
 				'messages' => [$messages],
 			];
 			$post = json_encode($data);
