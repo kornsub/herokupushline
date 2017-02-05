@@ -12,7 +12,7 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 
-			$text = $event;
+			$text = $event['userId'];
 			//$text = $event['message']['text'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
@@ -45,5 +45,5 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
-echo "OK";
+echo "OK2";
 ?>
