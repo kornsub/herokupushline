@@ -1,15 +1,6 @@
 <?php 
 $access_token = "RNiI64Nz6IIxxyyD0hc83r1gNUHEIHONHa3no3s0Eo+xMs2ftaA9d758TQE6Iy06guYt+yo3x5Fhb3ETuWyjmtG3JLGppnC/H3ZamCLLtvTpcew+D9f39TEbPvEVOuV4WFxeH13sk4okTFsTHHCjEwdB04t89/1O/w1cDnyilFU=";
-// Get POST body content
-$content = file_get_contents('php://input');
-// Parse JSON
-$events = json_decode($content, true);
-// Validate parsed JSON data
-if (!is_null($events['events'])) {
-	// Loop through each event
-	foreach ($events['events'] as $event) {
-		// Reply only when message sent is in 'text' format
-		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
+
 			// Get text sent
 
 			$text = "Hi, Songpon How are you?";
@@ -40,8 +31,7 @@ if (!is_null($events['events'])) {
 			curl_close($ch);
 
 			echo $result . "\r\n";
-		}
-	}
-}
-echo "OK_push";
+
+
+echo "OK_push2";
 ?>
